@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .clock{
+      width:200px;
+      height:200px;
+      border:2px solid;
+      border-radius:50%;
+      margin:auto;
+      padding: 10px;
+    }
+    .clockface{
+      width:200px;
+      height:200px;
+      background-color:yellow;
+      position: relative;
+      border-radius:50%;
+    }
+   
+    .hand{
+      width:6px;
+      height:50%;
+      left:50%;
+      position:absolute;
+      background:black;
+      transform-origin: bottom;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="clockface">
+      <div class="hand1 hand"></div>
+      <div class="hand2 hand"></div>
+      <div class="hand3 hand"></div>
+    </div>
+  </div>
+</body>
+  
+  <script>
+   const updateTime=()=>{
+     var d=new Date();
+     var hour=d.getHours();
+     var minutes=d.getMinutes();
+     var seconds=d.getSeconds();
+     var hours=30*hour+(minutes/2);
+     console.log(hours);
+     var f=document.getElementsByClassName("hand1");
+      f[0].style.transform="rotate(20deg)";
+   }
+    setInterval(updateTime,1000); 
+    </script>
+</html>
