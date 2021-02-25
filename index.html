@@ -6,23 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    
     .clock{
-      width:200px;
-      height:200px;
+      width:300px;
+      height:300px;
       border:2px solid;
       border-radius:50%;
       margin:auto;
       padding: 10px;
     }
     .clockface{
-      width:200px;
-      height:200px;
+      width:300px;
+      height:300px;
       background-color:yellow;
       position: relative;
       border-radius:50%;
     }
    
-    .hand{
+    .hand1{
       width:6px;
       height:50%;
       left:50%;
@@ -30,6 +31,23 @@
       background:black;
       transform-origin: bottom;
     }
+    .hand2{
+      width:4px;
+      height:50%;
+      left:50%;
+      position:absolute;
+      background:black;
+      transform-origin: bottom;
+    }
+    .hand3{
+      width:2px;
+      height:50%;
+      left:50%;
+      position:absolute;
+      background:black;
+      transform-origin: bottom;
+    }
+    
   </style>
 </head>
 <body>
@@ -41,7 +59,6 @@
     </div>
   </div>
 </body>
-  
   <script>
    const updateTime=()=>{
      var d=new Date();
@@ -49,9 +66,12 @@
      var minutes=d.getMinutes();
      var seconds=d.getSeconds();
      var hours=30*hour+(minutes/2);
-     console.log(hours);
-     var f=document.getElementsByClassName("hand1");
-      f[0].style.transform="rotate(20deg)";
+     var minutesdeg=6*minutes;
+     var secondsdeg=6*seconds;
+     var f=document.getElementsByClassName("hand");
+     f[0].style.transform=`rotate(${hours}deg)`;
+     f[1].style.transform=`rotate(${minutesdeg}deg)`;
+     f[2].style.transform=`rotate(${secondsdeg}deg)`;
    }
     setInterval(updateTime,1000); 
     </script>
